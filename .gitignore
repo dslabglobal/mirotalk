@@ -16,3 +16,4 @@ package-lock.json
 
 # personal env
 .env
+.idea/
