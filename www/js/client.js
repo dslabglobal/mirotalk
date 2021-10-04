@@ -1,9 +1,9 @@
 /*
  ██████ ██      ██ ███████ ███    ██ ████████ 
 ██      ██      ██ ██      ████   ██    ██    
-██      ██      ██ █████   ██ ██  ██    ██    
-██      ██      ██ ██      ██  ██ ██    ██    
- ██████ ███████ ██ ███████ ██   ████    ██   
+██      ██      ██ █████   ██ ██  ██    ██ 
+██      ██      ██ ██      ██  ██ ██    ██ 
+ ██████ ███████ ██ ███████ ██   ████    ██ 
 
 MiroTalk Browser Client
 Copyright (C) 2021 Miroslav Pejic <miroslav.pejic.85@gmail.com>
@@ -257,7 +257,7 @@ function getHtmlElementsById() {
     chatRoomBtn = getId('chatRoomBtn');
     whiteboardBtn = getId('whiteboardBtn');
     fileShareBtn = getId('fileShareBtn');
-    gameBtn = getId('gameBtn');
+    // gameBtn = getId('gameBtn');
     myHandBtn = getId('myHandBtn');
     mySettingsBtn = getId('mySettingsBtn');
     aboutBtn = getId('aboutBtn');
@@ -386,10 +386,10 @@ function setButtonsTitle() {
         content: 'SHARE the file',
         placement: 'right-start',
     });
-    tippy(gameBtn, {
-        content: 'START a game',
-        placement: 'right-start',
-    });
+    // tippy(gameBtn, {
+    //     content: 'START a game',
+    //     placement: 'right-start',
+    // });
     tippy(mySettingsBtn, {
         content: 'Show settings',
         placement: 'right-start',
@@ -1371,7 +1371,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     const remoteAudioStatusIcon = document.createElement('button');
     const remotePrivateMsgBtn = document.createElement('button');
     const remoteYoutubeBtnBtn = document.createElement('button');
-    const remotePeerKickOut = document.createElement('button');
+    // const remotePeerKickOut = document.createElement('button');
     const remoteVideoFullScreenBtn = document.createElement('button');
     const remoteVideoAvatarImage = document.createElement('img');
 
@@ -1420,12 +1420,12 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     tippy(remotePrivateMsgBtn, {
         content: 'Send private message',
     });
-    // remote peer kick out
-    remotePeerKickOut.setAttribute('id', peer_id + '_kickOut');
-    remotePeerKickOut.className = 'fas fa-sign-out-alt';
-    tippy(remotePeerKickOut, {
-        content: 'Kick out',
-    });
+    // // remote peer kick out
+    // remotePeerKickOut.setAttribute('id', peer_id + '_kickOut');
+    // remotePeerKickOut.className = 'fas fa-sign-out-alt';
+    // tippy(remotePeerKickOut, {
+    //     content: 'Kick out',
+    // });
     // remote video full screen mode
     remoteVideoFullScreenBtn.setAttribute('id', peer_id + '_fullScreen');
     remoteVideoFullScreenBtn.className = 'fas fa-expand';
@@ -1444,7 +1444,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     remoteStatusMenu.appendChild(remoteAudioStatusIcon);
     remoteStatusMenu.appendChild(remoteYoutubeBtnBtn);
     remoteStatusMenu.appendChild(remotePrivateMsgBtn);
-    remoteStatusMenu.appendChild(remotePeerKickOut);
+    // remoteStatusMenu.appendChild(remotePeerKickOut);
     remoteStatusMenu.appendChild(remoteVideoFullScreenBtn);
 
     remoteMedia.setAttribute('id', peer_id + '_video');
@@ -1717,7 +1717,7 @@ function manageLeftButtons() {
     setMyHandBtn();
     setMyWhiteboardBtn();
     setMyFileShareBtn();
-    setMyGameBtn();
+    // setMyGameBtn();
     setMySettingsBtn();
     setAboutBtn();
     setLeaveRoomBtn();
@@ -2007,23 +2007,23 @@ function setMyFileShareBtn() {
 /**
  * My game button click event and settings
  */
-function setMyGameBtn() {
-    if (isMobileDevice) {
-        // adapt game iframe for mobile
-        document.documentElement.style.setProperty('--game-iframe-width', '100%');
-        document.documentElement.style.setProperty('--game-iframe-height', '100%');
-    } else {
-        dragElement(gameCont, gameHeader);
-    }
-    gameBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleGame();
-    });
-    gameCloseBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleGame();
-    });
-}
+// function setMyGameBtn() {
+//     if (isMobileDevice) {
+//         // adapt game iframe for mobile
+//         document.documentElement.style.setProperty('--game-iframe-width', '100%');
+//         document.documentElement.style.setProperty('--game-iframe-height', '100%');
+//     } else {
+//         dragElement(gameCont, gameHeader);
+//     }
+//     // gameBtn.addEventListener('click', (e) => {
+//     //     e.preventDefault();
+//     //     toggleGame();
+//     // });
+//     gameCloseBtn.addEventListener('click', (e) => {
+//         e.preventDefault();
+//         toggleGame();
+//     });
+// }
 
 /**
  * My settings button click event
@@ -2456,7 +2456,7 @@ async function shareRoomUrl() {
             /*
                 This feature is available only in secure contexts (HTTPS),
                 in some or all supporting browsers and mobile devices
-                console.error("navigator.share", err); 
+                console.error("navigator.share", err);
             */
         }
     }
