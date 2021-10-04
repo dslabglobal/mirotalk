@@ -603,7 +603,7 @@ function initClientPeer() {
     signalingSocket.on('peerStatus', handlePeerStatus);
     signalingSocket.on('peerAction', handlePeerAction);
     signalingSocket.on('wb', handleWhiteboard);
-    signalingSocket.on('kickOut', handleKickedOut);
+    // signalingSocket.on('kickOut', handleKickedOut);
     signalingSocket.on('fileInfo', handleFileInfo);
     signalingSocket.on('fileAbort', handleFileAbort);
     signalingSocket.on('videoPlayer', handleVideoPlayer);
@@ -1471,7 +1471,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     // handle video full screen mode
     handleVideoPlayerFs(peer_id + '_video', peer_id + '_fullScreen', peer_id);
     // handle kick out button event
-    handlePeerKickOutBtn(peer_id);
+    // handlePeerKickOutBtn(peer_id);
     // refresh remote peers avatar name
     setPeerAvatarImgName(peer_id + '_avatar', peer_name);
     // refresh remote peers hand icon status and title
@@ -4684,47 +4684,47 @@ function handleVideoPlayer(config) {
  * Handle peer kick out event button
  * @param {*} peer_id
  */
-function handlePeerKickOutBtn(peer_id) {
-    let peerKickOutBtn = getId(peer_id + '_kickOut');
-    peerKickOutBtn.addEventListener('click', (e) => {
-        kickOut(peer_id, peerKickOutBtn);
-    });
-}
+// function handlePeerKickOutBtn(peer_id) {
+//     let peerKickOutBtn = getId(peer_id + '_kickOut');
+//     peerKickOutBtn.addEventListener('click', (e) => {
+//         kickOut(peer_id, peerKickOutBtn);
+//     });
+// }
 
 /**
  * Kick out confirm
  * @param {*} peer_id
  * @param {*} peerKickOutBtn
  */
-function kickOut(peer_id, peerKickOutBtn) {
-    let pName = getId(peer_id + '_name').innerHTML;
-
-    Swal.fire({
-        background: swalBackground,
-        position: 'center',
-        imageUrl: confirmImg,
-        title: 'Kick out ' + pName,
-        text: 'Are you sure you want to kick out this participant?',
-        showDenyButton: true,
-        confirmButtonText: `Yes`,
-        denyButtonText: `No`,
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown',
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp',
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // send peer to kick out from room
-            sendToServer('kickOut', {
-                room_id: roomId,
-                peer_id: peer_id,
-                peer_name: myPeerName,
-            });
-        }
-    });
-}
+// function kickOut(peer_id, peerKickOutBtn) {
+//     let pName = getId(peer_id + '_name').innerHTML;
+//
+//     Swal.fire({
+//         background: swalBackground,
+//         position: 'center',
+//         imageUrl: confirmImg,
+//         title: 'Kick out ' + pName,
+//         text: 'Are you sure you want to kick out this participant?',
+//         showDenyButton: true,
+//         confirmButtonText: `Yes`,
+//         denyButtonText: `No`,
+//         showClass: {
+//             popup: 'animate__animated animate__fadeInDown',
+//         },
+//         hideClass: {
+//             popup: 'animate__animated animate__fadeOutUp',
+//         },
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             // send peer to kick out from room
+//             sendToServer('kickOut', {
+//                 room_id: roomId,
+//                 peer_id: peer_id,
+//                 peer_name: myPeerName,
+//             });
+//         }
+//     });
+// }
 
 /**
  * You will be kicked out from the room and popup the peer name that performed this action
