@@ -717,42 +717,42 @@ function joinToChannel() {
 function welcomeUser() {
     const myRoomUrl = window.location.href;
     playSound('newMessage');
-    Swal.fire({
-        background: swalBackground,
-        position: 'center',
-        title: '<strong>Welcome ' + myPeerName + '</strong>',
-        imageAlt: 'mirotalk-welcome',
-        imageUrl: welcomeImg,
-        html:
-            `
-        <br/> 
-        <p style="color:white;">Share this meeting invite others to join.</p>
-        <p style="color:rgb(8, 189, 89);">` +
-            myRoomUrl +
-            `</p>`,
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: `Copy meeting URL`,
-        denyButtonText: `Email invite`,
-        cancelButtonText: `Close`,
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown',
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp',
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {
-            copyRoomURL();
-        } else if (result.isDenied) {
-            let message = {
-                email: '',
-                subject: 'Please join our MiroTalk Video Chat Meeting',
-                body: 'Click to join: ' + myRoomUrl,
-            };
-            shareRoomByEmail(message);
-        }
-    });
+    // Swal.fire({
+    //     background: swalBackground,
+    //     position: 'center',
+    //     title: '<strong>Welcome ' + myPeerName + '</strong>',
+    //     imageAlt: 'mirotalk-welcome',
+    //     imageUrl: welcomeImg,
+    //     html:
+    //         `
+    //     <br/>
+    //     <p style="color:white;">Share this meeting invite others to join.</p>
+    //     <p style="color:rgb(8, 189, 89);">` +
+    //         myRoomUrl +
+    //         `</p>`,
+    //     showDenyButton: true,
+    //     showCancelButton: true,
+    //     confirmButtonText: `Copy meeting URL`,
+    //     denyButtonText: `Email invite`,
+    //     cancelButtonText: `Close`,
+    //     showClass: {
+    //         popup: 'animate__animated animate__fadeInDown',
+    //     },
+    //     hideClass: {
+    //         popup: 'animate__animated animate__fadeOutUp',
+    //     },
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         copyRoomURL();
+    //     } else if (result.isDenied) {
+    //         let message = {
+    //             email: '',
+    //             subject: 'Please join our MiroTalk Video Chat Meeting',
+    //             body: 'Click to join: ' + myRoomUrl,
+    //         };
+    //         shareRoomByEmail(message);
+    //     }
+    // });
 }
 
 /**
